@@ -1,0 +1,29 @@
+{
+  "name": "toptivecalculator",
+  "version": "1.0.0",
+  "description": "Basic calculator for Toptive",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larmas/calculator.git"
+  },
+  "author": "@larmas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larmas/calculator/issues"
+  },
+  "homepage": "https://github.com/larmas/calculator#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consolidate": "^0.15.1",
+    "express": "^4.17.1",
+    "swig": "^1.4.2"
+  }
+}
