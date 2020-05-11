@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+body {
+  margin: 10% 5%;
+  background-color: rgb(214, 212, 212);
+}
+
+h1 {
+  text-align: center;
+  font-size: 5em;
+}
+
+.btn-group {
+    float: right;
+}
+
+.btn-group {
+    margin: 1em;
+}
+
+.btn-group button {
+  margin: 0 1em;
+  border-radius: .5em !important;
+}
+
+.form-group label {
+  font-size: 1.5em;
+}
+
+#calculator {
+  width: 75%;
+  margin: 5em auto;
+}
+
+#inDisplay, #outDisplay {
+  text-align: center;
+}
