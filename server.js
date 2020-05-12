@@ -10,12 +10,20 @@ app.set('port', 8080);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(function (req, res, next) {
+    res.renderWithData = function (view, model, data) {
+        model.data = JSON.stringify(data);
+        res.render(view, model);
+    };
+    next();
+});
 
 app.use('/', routes);
 

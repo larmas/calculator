@@ -36,9 +36,14 @@ function solveExpression(){
 
 function saveSession(){
   let indexSession = prompt('Indique el numero de la sesion');
-  let sessionSave = {
-    numberSession : indexSession,
-    expression : sessionsArray[indexSession],
+  console.log(indexSession);
+  if (indexSession === null)
+    document.getElementById("saveExpression").value = -1 ;
+  else if( indexSession < sessionsArray.length ){
+    let sessionSave = {
+      numberSession : indexSession,
+      expression : sessionsArray[indexSession],
+    }
+    document.getElementById("saveExpression").value = JSON.stringify(sessionSave);
   }
-  document.getElementById("saveExpression").value = JSON.stringify(sessionSave);
 }
