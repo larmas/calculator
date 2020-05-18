@@ -9,16 +9,8 @@ body {
   background-color: rgb(214, 212, 212);
 }
 
-h1 {
-  text-align: center;
-  font-size: 5em;
-}
-
 .btn-group {
     float: right;
-}
-
-.btn-group {
     margin: 1em;
 }
 
@@ -31,11 +23,74 @@ h1 {
   font-size: 1.5em;
 }
 
-#calculator {
+h1 {
+  text-align: center;
+  font-size: 5em;
+}
+
+h4{
+  text-align: center;
+}
+
+.history {
+  margin: 1em auto;
+  width: 75%;
+}
+
+.history input {
+  flex-grow: 1;
+  margin: .2em;
+}
+
+.history button {
+  margin: .2em;
+}
+
+#calculator, #saveForm {
   width: 75%;
   margin: 5em auto;
 }
 
+.btn-space {
+  margin-bottom: 2em;
+}
+
 #inDisplay, #outDisplay {
   text-align: center;
+}
+
+table.blueTable {
+  margin: 2em auto;
+  border: .3em solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 75%;
+  text-align: center;
+  border-collapse: collapse;
+
+}
+table.blueTable td, table.blueTable th {
+  border: .1em solid #AAAAAA;
+  padding: .2em .1em;
+}
+
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 1px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 1px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
 }

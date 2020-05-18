@@ -4,26 +4,20 @@ const routes = require('./public/javascript/routes');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
-
+const { config, engine } = require('express-edge');
+const favicon = require('serve-favicon');
 
 app.set('port', 8080);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-app.set('views', path.join(__dirname, 'views'));
+app.use(engine);
+app.set('views', `${__dirname}/views`);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(function (req, res, next) {
-    res.renderWithData = function (view, model, data) {
-        model.data = JSON.stringify(data);
-        res.render(view, model);
-    };
-    next();
-});
+app.use(favicon(path.join(__dirname, './public/images', 'favicon.ico')));
 
 app.use('/', routes);
 

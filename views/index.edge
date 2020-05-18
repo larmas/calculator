@@ -1,0 +1,27 @@
+@layout('layout')
+
+@section('content')
+  <form id="calculator" class="form-horizontal" action="/save" method="post" onsubmit="getSessionsArray('saveExpression')">
+    <div class="form-group">
+      <label for="inDisplay" class="control-label">Expression</label>
+      <input type="text" id="inDisplay" name="inDisplay" value="{{editExpression}}" class="form-control control-label" placeholder="Mathematical expression" autofocus>
+    </div>
+    <div class="form-group">
+      <label for="outDisplay" class="control-label">Result</label>
+      <input type="text" id="outDisplay" name="outDisplay" value="{{message}}" class="form-control control-label" placeholder="Result">
+    </div>
+    <input type="hidden" id="saveExpression" name="saveExpression" value="">
+    <div class="btn-group col-lg-6 btn-space">
+      <button type="button" id="solveExpr" class="form-control btn btn-success" onclick="solveExpression()">Solve</button>
+      <button type="submit" id="save" class="form-control btn btn-primary">Save</button>
+    </div>
+  </form>
+  @each(session in sessionsSaved)
+    <form class="form-inline history" method="post" onsubmit="getSessionsArray('saveExpression')">
+        <input type="text" id="editExpression" name="editExpression" class="form-control" value="{{session.expression}}">
+        <input type="hidden" id="numberSession" name="numberSession" value="{{session.numberSession}}">
+        <button type="submit" class="form-control btn btn-primary" formaction="/"> Edit</button>
+        <button type="submit" class="form-control btn btn-danger" formaction="/delete">Delete</button>
+    </form>
+  @endeach
+@endsection

@@ -1,49 +1,40 @@
 window.onload = function(){
   var inDisplay = document.getElementById("inDisplay");
   var outDisplay = document.getElementById("outDisplay");
-  var paramURL = getParameterByName('errMsg');
-  if (paramURL !== ""){
-    outDisplay.value = paramURL;
-  }
-  inDisplay.onchange = function() {
-    window.history.pushState("object or string", "Basic calculator", "/");
-  };
 }
 
-var sessionsArray = [];
-
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-    results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+function validateIndex(){
+  let index = document.getElementById('indexSave');
+  let length = JSON.parse(window.sessionStorage.getItem('sessionsArray')).length;
+  return 0 <= index && index <= length;
 }
 
 function solveExpression(){
   inDisplay.classList.remove("error");
+  let sessionsArray = JSON.parse(window.sessionStorage.getItem('sessionsArray'));
+  if (sessionsArray == null){
+    sessionsArray = [];
+  }
+  console.log(sessionsArray);
   try{
       let result = eval(inDisplay.value);
       outDisplay.value = result;
-      sessionsArray.push(inDisplay.value);
+      sessionsArray.push({ number: sessionsArray.length, expression: inDisplay.value });
   }catch (err){
     if (err instanceof SyntaxError){
       outDisplay.classList.add("error");
       outDisplay.value = "SyntaxError";
     }
   }
-
+  window.sessionStorage.setItem('sessionsArray', JSON.stringify(sessionsArray));
 }
 
-function saveSession(){
-  let indexSession = prompt('Indique el numero de la sesion');
-  console.log(indexSession);
-  if (indexSession === null)
-    document.getElementById("saveExpression").value = -1 ;
-  else if( indexSession < sessionsArray.length ){
-    let sessionSave = {
-      numberSession : indexSession,
-      expression : sessionsArray[indexSession],
-    }
-    document.getElementById("saveExpression").value = JSON.stringify(sessionSave);
+function getSessionsArray(idInput){
+  let sessionsArray = JSON.parse(window.sessionStorage.getItem('sessionsArray'));
+  if (sessionsArray == null){
+    sessionsArray = [];
   }
+  let sessions = { expressions : sessionsArray }
+  document.getElementById(idInput).value = JSON.stringify(sessions);
+  console.log(JSON.stringify(sessions));
 }

@@ -1,0 +1,32 @@
+@layout('layout')
+
+@section('content')
+  <h4>Available expressions</h4>
+  <table class="blueTable">
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Expression</th>
+      </tr>
+    </thead>
+    <tbody>
+      @each( session in sessions)
+        <tr>
+          <td>{{session.number}}</td>
+          <td>{{session.expression}}</td>
+        </tr>
+      @endeach
+    </tbody>
+  </table>
+
+  <form id="saveForm" action="/resultSave" method="post" onsubmit="getSessionsArray('sessions')">
+    <div class="form-group">
+      <input type="text" name="indexSave" class="form-control" value="" placeholder="Index number" autofocus>
+      <input type="hidden" id="sessions" name="sessions" value="">
+    </div>
+    <div class="btn-group">
+      <button type="submit" name="Save" class="btn btn-success">Save</button>
+      <button type="button" name="Back" class="btn btn-danger" onclick="location.href='/'">Back</button>
+    </div>
+  </form>
+@endsection
