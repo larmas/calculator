@@ -4,9 +4,88 @@
   font-family: monospace;
 }
 
+/* ------------------ TAG ------------------ */
+
 body {
   margin: 10% 5%;
   background-color: rgb(214, 212, 212);
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 5em;
+  margin: 0 auto;
+}
+
+h4{
+  text-align: center;
+}
+
+/* ------------------ ID ------------------ */
+
+#calculator, #resultForm, #saveForm {
+  width: 50%;
+  margin: 5em auto;
+}
+
+#calculator button:last-of-type, #saveForm button:last-of-type, #resultForm button:last-of-type{
+  margin-right: 0;
+}
+
+#inDisplay, #outDisplay {
+  text-align: center;
+}
+
+#resultForm #result{
+  text-align: center;
+}
+
+#saveForm #indexSave {
+  text-align: center;
+}
+
+/* ------------------ CLASS ------------------ */
+
+.blueTable {
+  margin: 2em auto;
+  border: .3em solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 50%;
+  text-align: center;
+  border-collapse: collapse;
+
+}
+
+.blueTable td, table.blueTable th {
+  border: .1em solid #AAAAAA;
+  padding: .2em .1em;
+}
+
+.blueTable tbody td {
+  font-size: 13px;
+}
+
+.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+
+.blueTable thead {
+  background: #1C6EA4;
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 1px solid #444444;
+}
+
+.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 1px solid #D0E4F5;
+}
+
+.blueTable thead th:first-child {
+  border-left: none;
 }
 
 .btn-group {
@@ -19,17 +98,22 @@ body {
   border-radius: .5em !important;
 }
 
+.btn-space {
+  margin: 2em auto;
+  width: 100%;
+}
+
+.error {
+  color: red;
+  border: solid .2em red;
+}
+
 .form-group label {
   font-size: 1.5em;
 }
 
-h1 {
-  text-align: center;
-  font-size: 5em;
-}
-
-h4{
-  text-align: center;
+.hidden {
+  display: none;
 }
 
 .history {
@@ -47,69 +131,25 @@ h4{
   margin: .2em;
 }
 
-#calculator, #saveForm, #resultForm {
-  width: 50%;
-  margin: 5em auto;
+.success {
+  color: green;
+  border: solid .2em green;
 }
 
+/* ------------------------ Screen size ---------------- */
 
-#saveForm #indexSave {
-  text-align: center;
-}
+@media screen and (max-width: 900px){
+  .history {
+    width: 80%;
+  }
 
-#resultForm #result{
-  text-align: center;
-}
-
-.hidden {
-  display: none;
-}
-
-.btn-space {
-  margin: 2em auto;
-  width: 100%;
+  #calculator, #saveForm, #resultForm {
+    width: 80%;
+  }
 }
 
-#calculator button:last-of-type, #saveForm button:last-of-type, #resultForm button:last-of-type{
-  margin-right: 0;
-}
-
-#inDisplay, #outDisplay {
-  text-align: center;
-}
-
-table.blueTable {
-  margin: 2em auto;
-  border: .3em solid #1C6EA4;
-  background-color: #EEEEEE;
-  width: 50%;
-  text-align: center;
-  border-collapse: collapse;
-
-}
-table.blueTable td, table.blueTable th {
-  border: .1em solid #AAAAAA;
-  padding: .2em .1em;
-}
-
-table.blueTable tbody td {
-  font-size: 13px;
-}
-table.blueTable tr:nth-child(even) {
-  background: #D0E4F5;
-}
-table.blueTable thead {
-  background: #1C6EA4;
-  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  border-bottom: 1px solid #444444;
-}
-table.blueTable thead th {
-  font-size: 15px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-align: center;
-  border-left: 1px solid #D0E4F5;
-}
-table.blueTable thead th:first-child {
-  border-left: none;
+@media screen and (max-width: 700px) {
+  h1 {
+    font-size: 3em;
+  }
 }

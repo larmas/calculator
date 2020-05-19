@@ -3,30 +3,30 @@ window.onload = function(){
   var outDisplay = document.getElementById("outDisplay");
 }
 
-function validateIndex(){
-  let index = document.getElementById('indexSave');
-  let length = JSON.parse(window.sessionStorage.getItem('sessionsArray')).length;
-  console.log(0 <= index && index <= length);
-  return 0 <= index && index <= length;
-}
-
 function solveExpression(){
-  inDisplay.classList.remove("error");
-  let sessionsArray = JSON.parse(window.sessionStorage.getItem('sessionsArray'));
-  if (sessionsArray == null){
-    sessionsArray = [];
-  }
-  try{
-      let result = eval(inDisplay.value);
-      outDisplay.value = result;
-      sessionsArray.push({ number: sessionsArray.length, expression: inDisplay.value });
-  }catch (err){
-    if (err instanceof SyntaxError){
-      outDisplay.classList.add("error");
-      outDisplay.value = "SyntaxError";
+  outDisplay.classList.remove("error");
+  outDisplay.classList.remove("success");
+  if (inDisplay.value != ''){
+    let sessionsArray = JSON.parse(window.sessionStorage.getItem('sessionsArray'));
+    if (sessionsArray == null){
+      sessionsArray = [];
     }
+    try{
+        let result = eval(inDisplay.value);
+        outDisplay.value = result;
+        outDisplay.classList.add("success");
+        sessionsArray.push({ number: sessionsArray.length, expression: inDisplay.value });
+    }catch (err){
+      if (err instanceof SyntaxError){
+        outDisplay.classList.add("error");
+        outDisplay.value = "SyntaxError";
+      }
+    }
+    window.sessionStorage.setItem('sessionsArray', JSON.stringify(sessionsArray));
+  } else {
+    outDisplay.classList.add("error");
+    outDisplay.value = "The expression is required";
   }
-  window.sessionStorage.setItem('sessionsArray', JSON.stringify(sessionsArray));
 }
 
 function getSessionsArray(idInput){

@@ -4,7 +4,7 @@
   <form id="resultForm" action="/save" method="post" onsubmit="getSessionsArray('saveExpression')">
     <div class="form-group">
       <label for="result">Result</label>
-      <input type="text" id="result" name="result" class="form-control" value="{{resultMsg}}">
+      <input type="text" id="result" name="result" class="form-control {{classErr}}" value="{{resultMsg}}">
       <input type="hidden" id="saveExpression" name="saveExpression" value="">
     </div>
     <div class="btn-group btn-space">

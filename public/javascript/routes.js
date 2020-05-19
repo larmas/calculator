@@ -15,22 +15,33 @@ router.post('/', async function(req, res){
 
 router.post('/resultSave', async function(req,res){
   let resultMsg = "";
+  let classErr = '';
   let index = req.body.indexSave;
   let sessions = JSON.parse(req.body.sessions).expressions;
   if ( 0 <= index && index < sessions.length){
-    let sessionCalculator = new SessionCalculator({
-      numberSession : sessions[index].number,
-      expression : sessions[index].expression
-    });
-    await sessionCalculator.save(function(err){
-    	if(err)
-        resultMsg = String(err);
-    })
-    resultMsg = "Successfully saved.";
+    if(! await SessionCalculator.exists({ expression: sessions[index].expression }) ){
+      let session = {
+        numberSession : sessions[index].number,
+        expression : sessions[index].expression
+      };
+      let sessionCalculator = new SessionCalculator(session);
+      await sessionCalculator.save(function(err){
+      	if(err){
+          resultMsg = String(err);
+          classErr = 'error';
+        }
+      })
+      classErr = 'success';
+      resultMsg = "Successfully saved.";
+    } else {
+      classErr = 'error';
+      resultMsg = "The expression already exists in the database.";
+    }
   } else {
+    classErr = 'error';
     resultMsg = "Index out of the bound.";
   }
-  res.render('resultSave', {resultMsg: resultMsg, sessions});
+  res.render('resultSave', {resultMsg: resultMsg, classErr: classErr, sessions});
 });
 
 router.post('/save', function(req,res){
