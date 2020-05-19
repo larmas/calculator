@@ -14,11 +14,9 @@ router.post('/', async function(req, res){
 });
 
 router.post('/resultSave', async function(req,res){
-  console.log(req.body);
   let resultMsg = "";
   let index = req.body.indexSave;
   let sessions = JSON.parse(req.body.sessions).expressions;
-  console.log(sessions);
   if ( 0 <= index && index < sessions.length){
     let sessionCalculator = new SessionCalculator({
       numberSession : sessions[index].number,
@@ -37,11 +35,13 @@ router.post('/resultSave', async function(req,res){
 
 router.post('/save', function(req,res){
   let sessions = JSON.parse(req.body.saveExpression).expressions;
-  if ( sessions == [] ){
-    // ocultar boton save
+  let hidden = '';
+  let resultMsg = '';
+  if ( sessions.length == 0 ){
+    hidden = 'hidden';
     resultMsg = "There are no sessions to save."
   }
-  res.render('save', {sessions});
+  res.render('save', { hiddenClass: hidden, resultMsg: resultMsg, sessions });
 });
 
 router.post('/delete', function(req,res){
@@ -52,7 +52,6 @@ router.post('/delete', function(req,res){
   SessionCalculator.deleteOne(deleteSession, function(err){
     if (err)
       console.log(err);
-    console.log("Successful deletion");
   });
   res.redirect('/');
 });

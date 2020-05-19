@@ -34,25 +34,44 @@ h4{
 
 .history {
   margin: 1em auto;
-  width: 75%;
+  width: 50%;
 }
 
 .history input {
   flex-grow: 1;
   margin: .2em;
+  text-align: center;
 }
 
 .history button {
   margin: .2em;
 }
 
-#calculator, #saveForm {
-  width: 75%;
+#calculator, #saveForm, #resultForm {
+  width: 50%;
   margin: 5em auto;
 }
 
+
+#saveForm #indexSave {
+  text-align: center;
+}
+
+#resultForm #result{
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
 .btn-space {
-  margin-bottom: 2em;
+  margin: 2em auto;
+  width: 100%;
+}
+
+#calculator button:last-of-type, #saveForm button:last-of-type, #resultForm button:last-of-type{
+  margin-right: 0;
 }
 
 #inDisplay, #outDisplay {
@@ -63,7 +82,7 @@ table.blueTable {
   margin: 2em auto;
   border: .3em solid #1C6EA4;
   background-color: #EEEEEE;
-  width: 75%;
+  width: 50%;
   text-align: center;
   border-collapse: collapse;
 

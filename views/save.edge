@@ -21,12 +21,12 @@
 
   <form id="saveForm" action="/resultSave" method="post" onsubmit="getSessionsArray('sessions')">
     <div class="form-group">
-      <input type="text" name="indexSave" class="form-control" value="" placeholder="Index number" autofocus>
+      <input type="text" id="indexSave" name="indexSave" class="form-control" value="{{resultMsg}}" placeholder="Index number" autofocus required>
       <input type="hidden" id="sessions" name="sessions" value="">
     </div>
-    <div class="btn-group">
-      <button type="submit" name="Save" class="btn btn-success">Save</button>
-      <button type="button" name="Back" class="btn btn-danger" onclick="location.href='/'">Back</button>
+    <div class="btn-group btn-space">
+      <button type="submit" name="Save" class="form-control btn btn-success {{hiddenClass}}" >Save</button>
+      <button type="button" name="Back" class="form-control btn btn-danger" onclick="location.href='/'">Back</button>
     </div>
   </form>
 @endsection

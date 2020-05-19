@@ -6,6 +6,7 @@ window.onload = function(){
 function validateIndex(){
   let index = document.getElementById('indexSave');
   let length = JSON.parse(window.sessionStorage.getItem('sessionsArray')).length;
+  console.log(0 <= index && index <= length);
   return 0 <= index && index <= length;
 }
 
@@ -15,7 +16,6 @@ function solveExpression(){
   if (sessionsArray == null){
     sessionsArray = [];
   }
-  console.log(sessionsArray);
   try{
       let result = eval(inDisplay.value);
       outDisplay.value = result;
@@ -36,5 +36,4 @@ function getSessionsArray(idInput){
   }
   let sessions = { expressions : sessionsArray }
   document.getElementById(idInput).value = JSON.stringify(sessions);
-  console.log(JSON.stringify(sessions));
 }

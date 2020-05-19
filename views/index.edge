@@ -1,7 +1,7 @@
 @layout('layout')
 
 @section('content')
-  <form id="calculator" class="form-horizontal" action="/save" method="post" onsubmit="getSessionsArray('saveExpression')">
+  <form id="calculator" action="/save" method="post" onsubmit="getSessionsArray('saveExpression')">
     <div class="form-group">
       <label for="inDisplay" class="control-label">Expression</label>
       <input type="text" id="inDisplay" name="inDisplay" value="{{editExpression}}" class="form-control control-label" placeholder="Mathematical expression" autofocus>
@@ -11,7 +11,7 @@
       <input type="text" id="outDisplay" name="outDisplay" value="{{message}}" class="form-control control-label" placeholder="Result">
     </div>
     <input type="hidden" id="saveExpression" name="saveExpression" value="">
-    <div class="btn-group col-lg-6 btn-space">
+    <div class="btn-group btn-space">
       <button type="button" id="solveExpr" class="form-control btn btn-success" onclick="solveExpression()">Solve</button>
       <button type="submit" id="save" class="form-control btn btn-primary">Save</button>
     </div>
