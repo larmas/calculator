@@ -1,5 +1,4 @@
 @layout('layout')
-
 @section('content')
   <h4>Available expressions</h4>
   <table class="blueTable">
@@ -18,7 +17,6 @@
       @endeach
     </tbody>
   </table>
-
   <form id="saveForm" action="/resultSave" method="post" onsubmit="getSessionsArray('sessions')">
     <div class="form-group">
       <input type="text" id="indexSave" name="indexSave" class="form-control" value="{{resultMsg}}" placeholder="Index number" autofocus required>

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+// Model of asession.
 var SessionCalculatorSchema = Schema({
   numberSession : {
     type : Number,
@@ -9,7 +10,7 @@ var SessionCalculatorSchema = Schema({
     type : String,
     required : 'The expression is required' }
 }, {
-    versionKey: false // You should be aware of the outcome after set to false
+    versionKey: false 
 });
 
 module.exports = mongoose.model('SessionCalculator', SessionCalculatorSchema);

@@ -2,11 +2,8 @@
   margin: 0;
   padding: 0;
   font-family: monospace;
-
 }
-
 /* ------------------ TAG ------------------ */
-
 body {
   margin: 10% 5%;
   background: rgb(8,105,114);
@@ -16,16 +13,13 @@ body {
   color: #071a52;
   font-weight: bold;
 }
-
 h1 {
   color: #071a52;
   text-align: center;
   font-family: 'Bungee Shade', cursive;
   font-size: 5em;
   margin: 0 auto;
-
 }
-
 h4{
   margin-top: 2em;
   font-size: 2.5em;
@@ -33,55 +27,42 @@ h4{
   color: #071a52;
   font-weight: bold;
 }
-
 input[type=text] {
   color: #071a52;
   font-weight: bold;
 }
-
 label {
   color: #071a52;
   font-weight: bold;
 }
-
 ::placeholder {
   font-weight: bold;
 }
-
 /* ------------------ ID ------------------ */
-
 #calculator, #resultForm, #saveForm {
   width: 50%;
   margin: 5em auto;
 }
-
 #calculator button:last-of-type, #saveForm button:last-of-type, #resultForm button:last-of-type{
   margin-right: 0;
 }
-
 #inDisplay, #outDisplay {
   text-align: center;
 }
-
 #resultForm #result{
   text-align: center;
 }
-
 #saveForm #indexSave {
   text-align: center;
 }
-
 /* ------------------ CLASS ------------------ */
-
 .btn {
   color: rgb(247, 244, 245);
   background-color: #071a52;
 }
-
 .btn-delete:hover {
   border: .1em solid red;
 }
-
 .blueTable {
   margin: 2em auto;
   border: .3em solid #071a52;
@@ -89,28 +70,22 @@ label {
   width: 50%;
   text-align: center;
   border-collapse: collapse;
-
 }
-
 .blueTable td, table.blueTable th {
   border: .1em solid #AAAAAA;
   padding: .2em .1em;
 }
-
 .blueTable tbody td {
   font-size: 13px;
 }
-
 .blueTable tr:nth-child(even) {
   background: #D0E4F5;
 }
-
 .blueTable thead {
   background: #071a52;
   background: linear-gradient(to bottom, #071a52 0%, #08226c 66%, #0a2983 100%);
   border-bottom: 1px solid #444444;
 }
-
 .blueTable thead th {
   font-size: 15px;
   font-weight: bold;
@@ -118,66 +93,52 @@ label {
   text-align: center;
   border-left: 1px solid #D0E4F5;
 }
-
 .blueTable thead th:first-child {
   border-left: none;
 }
-
 .btn-group {
     float: right;
     margin: 1em;
 }
-
 .btn-group button {
   margin: 0 1em;
   border-radius: .5em !important;
 }
-
 .btn-space {
   margin: 2em auto;
   width: 100%;
 }
-
 .error {
   font-style: italic;
   border: solid .2em #071a52;;
 }
-
 .form-group label {
   font-size: 1.5em;
 }
-
 .hidden {
   display: none;
 }
-
 .history {
   margin: 1em auto;
   width: 50%;
 }
-
 .history input {
   flex-grow: 1;
   margin: .2em;
   text-align: center;
 }
-
 .history button {
   margin: .2em;
 }
-
 /* ------------------------ Screen size ---------------- */
-
 @media screen and (max-width: 900px){
   .history {
     width: 80%;
   }
-
   #calculator, #saveForm, #resultForm {
     width: 80%;
   }
 }
-
 @media screen and (max-width: 700px) {
   h1 {
     font-size: 3em;

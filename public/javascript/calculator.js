@@ -3,6 +3,8 @@ window.onload = function(){
   var outDisplay = document.getElementById("outDisplay");
 }
 
+/* Get a mathematical expression and solve it. Save the expression in a
+   locally stored array. */
 function solveExpression(){
   outDisplay.classList.remove("error");
   if (inDisplay.value != ''){
@@ -27,6 +29,8 @@ function solveExpression(){
   }
 }
 
+/* Gets an array with the expressions that the user has calculated  and 
+  stores it in an html input. */
 function getSessionsArray(idInput){
   let sessionsArray = JSON.parse(window.sessionStorage.getItem('sessionsArray'));
   if (sessionsArray == null){
