@@ -31,7 +31,6 @@ router.post('/resultSave', async function(req,res){
           classErr = 'error';
         }
       })
-      classErr = 'success';
       resultMsg = "Successfully saved.";
     } else {
       classErr = 'error';

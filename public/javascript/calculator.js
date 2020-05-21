@@ -5,7 +5,6 @@ window.onload = function(){
 
 function solveExpression(){
   outDisplay.classList.remove("error");
-  outDisplay.classList.remove("success");
   if (inDisplay.value != ''){
     let sessionsArray = JSON.parse(window.sessionStorage.getItem('sessionsArray'));
     if (sessionsArray == null){
@@ -14,7 +13,6 @@ function solveExpression(){
     try{
         let result = eval(inDisplay.value);
         outDisplay.value = result;
-        outDisplay.classList.add("success");
         sessionsArray.push({ number: sessionsArray.length, expression: inDisplay.value });
     }catch (err){
       if (err instanceof SyntaxError){

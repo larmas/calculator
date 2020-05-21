@@ -12,16 +12,16 @@
     </div>
     <input type="hidden" id="saveExpression" name="saveExpression" value="">
     <div class="btn-group btn-space">
-      <button type="button" id="solveExpr" class="form-control btn btn-success" onclick="solveExpression()">Solve</button>
-      <button type="submit" id="save" class="form-control btn btn-primary">Save</button>
+      <button type="button" id="solveExpr" class="form-control btn" onclick="solveExpression()">Solve</button>
+      <button type="submit" id="save" class="form-control btn">Save</button>
     </div>
   </form>
   @each(session in sessionsSaved)
     <form class="form-inline history" method="post" onsubmit="getSessionsArray('saveExpression')">
         <input type="text" id="editExpression" name="editExpression" class="form-control" value="{{session.expression}}">
         <input type="hidden" id="numberSession" name="numberSession" value="{{session.numberSession}}">
-        <button type="submit" class="form-control btn btn-primary" formaction="/"> Edit</button>
-        <button type="submit" class="form-control btn btn-danger" formaction="/delete">Delete</button>
+        <button type="submit" class="form-control btn" formaction="/"> Edit</button>
+        <button type="submit" class="form-control btn btn-delete" formaction="/delete">Delete</button>
     </form>
   @endeach
 @endsection
